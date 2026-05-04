@@ -1,0 +1,453 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+  <title>Collection — HOROLOGIUM</title>
+  <link rel="stylesheet" href="styles.css"/>
+</head>
+<body>
+
+<div id="preloader">
+  <div class="preloader-inner">
+    <div class="preloader-logo">HOROLOGIUM</div>
+    <div class="preloader-bar"><span></span></div>
+    <div class="preloader-text">Loading Collection</div>
+  </div>
+</div>
+
+<div class="cursor-dot"></div>
+<div class="cursor-circle"></div>
+
+<div class="mobile-menu" id="mobileMenu">
+  <a href="index.html">Home</a>
+  <a href="collection.html">Collection</a>
+  <a href="brands.html">Maisons</a>
+  <a href="about.html">Heritage</a>
+  <a href="contact.html">Atelier</a>
+</div>
+
+<nav id="navbar">
+  <div class="nav-logo"><a href="index.html">HOROLOGIUM</a></div>
+  <div class="nav-toggle" id="navToggle"><span></span><span></span><span></span></div>
+  <ul class="nav-links">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="collection.html" class="active">Collection</a></li>
+    <li><a href="brands.html">Maisons</a></li>
+    <li><a href="about.html">Heritage</a></li>
+    <li><a href="contact.html">Atelier</a></li>
+  </ul>
+  <div class="nav-cta"><a href="contact.html">Enquire</a></div>
+</nav>
+
+<!-- PAGE HERO -->
+<div class="page-hero">
+  <div class="hero-particles" id="heroParticles"></div>
+  <div class="hero-bg" style="position:absolute;inset:0;background:radial-gradient(ellipse 80% 80% at 50% 120%,#1a1200 0%,#050505 70%);"></div>
+  <div class="page-hero-content">
+    <div class="page-hero-eyebrow reveal-up">Every Piece, A Masterwork</div>
+    <h1 class="page-hero-title reveal-up delay-1">The<br><em style="font-family:var(--font-body);color:var(--gold);font-style:italic;">Collection</em></h1>
+  </div>
+</div>
+
+<!-- MARQUEE -->
+<div class="marquee-section">
+  <div class="marquee-track">
+    <span>ROLEX</span><span class="dot">◆</span>
+    <span>PATEK PHILIPPE</span><span class="dot">◆</span>
+    <span>AUDEMARS PIGUET</span><span class="dot">◆</span>
+    <span>VACHERON CONSTANTIN</span><span class="dot">◆</span>
+    <span>A. LANGE &amp; SÖHNE</span><span class="dot">◆</span>
+    <span>JAEGER-LECOULTRE</span><span class="dot">◆</span>
+    <span>ROLEX</span><span class="dot">◆</span>
+    <span>PATEK PHILIPPE</span><span class="dot">◆</span>
+    <span>AUDEMARS PIGUET</span><span class="dot">◆</span>
+    <span>VACHERON CONSTANTIN</span><span class="dot">◆</span>
+    <span>A. LANGE &amp; SÖHNE</span><span class="dot">◆</span>
+    <span>JAEGER-LECOULTRE</span><span class="dot">◆</span>
+  </div>
+</div>
+
+<!-- COLLECTION SECTION -->
+<section class="collection-section">
+
+  <!-- Filter Bar -->
+  <div class="filter-bar">
+    <button class="filter-btn active" data-filter="all">All Pieces</button>
+    <button class="filter-btn" data-filter="rolex">Rolex</button>
+    <button class="filter-btn" data-filter="patek">Patek Philippe</button>
+    <button class="filter-btn" data-filter="ap">Audemars Piguet</button>
+    <button class="filter-btn" data-filter="vacheron">Vacheron Constantin</button>
+    <button class="filter-btn" data-filter="lange">A. Lange &amp; Söhne</button>
+    <button class="filter-btn" data-filter="jaeger">Jaeger-LeCoultre</button>
+  </div>
+
+  <div class="watches-grid">
+
+    <!-- ROLEX DAYTONA -->
+    <div class="watch-item reveal-up" data-brand="rolex">
+      <div class="watch-item-image">
+        <div class="dial-art dial-rolex-daytona" style="width:150px;height:150px;">
+          <div class="d-face">
+            <div class="d-h" style="background:var(--cream);"></div>
+            <div class="d-m" style="background:var(--cream);"></div>
+            <div class="d-s" style="background:#e55;"></div>
+            <div class="d-center" style="background:var(--gold);box-shadow:0 0 8px var(--gold);"></div>
+            <div class="d-logo" style="color:var(--gold-light);">ROLEX</div>
+            <div class="d-model">DAYTONA</div>
+          </div>
+        </div>
+      </div>
+      <div class="watch-item-info">
+        <div class="wi-brand">ROLEX</div>
+        <div class="wi-name">Cosmograph Daytona</div>
+        <div class="wi-ref">Ref. 126500LN — Oystersteel</div>
+        <div class="wi-bottom">
+          <div class="wi-price">$14,550</div>
+          <button class="wi-btn">Enquire</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- ROLEX SUBMARINER -->
+    <div class="watch-item reveal-up delay-1" data-brand="rolex">
+      <div class="watch-item-image">
+        <div class="dial-art dial-rolex-submariner" style="width:150px;height:150px;">
+          <div class="d-ring" style="inset:0;border-color:rgba(0,80,160,0.3);"></div>
+          <div class="d-face">
+            <div class="d-h" style="background:var(--cream);"></div>
+            <div class="d-m" style="background:var(--cream);"></div>
+            <div class="d-s" style="background:#e55;"></div>
+            <div class="d-center" style="background:#aaa;"></div>
+            <div class="d-logo" style="color:var(--gold-light);">ROLEX</div>
+            <div class="d-model">SUBMARINER</div>
+          </div>
+        </div>
+      </div>
+      <div class="watch-item-info">
+        <div class="wi-brand">ROLEX</div>
+        <div class="wi-name">Submariner Date</div>
+        <div class="wi-ref">Ref. 126610LN — Oystersteel</div>
+        <div class="wi-bottom">
+          <div class="wi-price">$10,100</div>
+          <button class="wi-btn">Enquire</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- ROLEX GMT MASTER II -->
+    <div class="watch-item reveal-up delay-2" data-brand="rolex">
+      <div class="watch-item-image">
+        <div class="dial-art dial-rolex-gmt" style="width:150px;height:150px;">
+          <div class="d-face">
+            <div class="d-h" style="background:var(--cream);"></div>
+            <div class="d-m" style="background:var(--cream);"></div>
+            <div class="d-s" style="background:#e55;"></div>
+            <div class="d-center" style="background:var(--gold);"></div>
+            <div class="d-logo" style="color:var(--gold-light);">ROLEX</div>
+            <div class="d-model">GMT-MASTER II</div>
+          </div>
+        </div>
+      </div>
+      <div class="watch-item-info">
+        <div class="wi-brand">ROLEX</div>
+        <div class="wi-name">GMT-Master II</div>
+        <div class="wi-ref">Ref. 126710BLRO — "Pepsi"</div>
+        <div class="wi-bottom">
+          <div class="wi-price">$12,150</div>
+          <button class="wi-btn">Enquire</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- ROLEX DATEJUST -->
+    <div class="watch-item reveal-up" data-brand="rolex">
+      <div class="watch-item-image">
+        <div class="dial-art dial-rolex-datejust" style="width:150px;height:150px;">
+          <div class="d-face">
+            <div class="d-h" style="background:var(--cream);"></div>
+            <div class="d-m" style="background:var(--cream);"></div>
+            <div class="d-s" style="background:#e55;"></div>
+            <div class="d-center" style="background:#c08080;"></div>
+            <div class="d-logo" style="color:var(--gold-light);">ROLEX</div>
+            <div class="d-model">DATEJUST</div>
+          </div>
+        </div>
+      </div>
+      <div class="watch-item-info">
+        <div class="wi-brand">ROLEX</div>
+        <div class="wi-name">Datejust 41</div>
+        <div class="wi-ref">Ref. 126334 — Fluted Bezel</div>
+        <div class="wi-bottom">
+          <div class="wi-price">$9,550</div>
+          <button class="wi-btn">Enquire</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- PATEK NAUTILUS -->
+    <div class="watch-item reveal-up delay-1" data-brand="patek">
+      <div class="watch-item-image">
+        <div class="dial-art dial-patek-nautilus" style="width:150px;height:150px;">
+          <div class="d-face">
+            <div class="d-h"></div><div class="d-m"></div><div class="d-s" style="background:#e55;"></div>
+            <div class="d-center"></div>
+            <div class="d-logo">PATEK PHILIPPE</div>
+            <div class="d-model">NAUTILUS</div>
+          </div>
+        </div>
+      </div>
+      <div class="watch-item-info">
+        <div class="wi-brand">PATEK PHILIPPE</div>
+        <div class="wi-name">Nautilus</div>
+        <div class="wi-ref">Ref. 5711/1A-010 — Steel</div>
+        <div class="wi-bottom">
+          <div class="wi-price">$34,893</div>
+          <button class="wi-btn">Enquire</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- PATEK CALATRAVA -->
+    <div class="watch-item reveal-up delay-2" data-brand="patek">
+      <div class="watch-item-image">
+        <div class="dial-art dial-patek-calatrava" style="width:150px;height:150px;">
+          <div class="d-face">
+            <div class="d-h" style="background:#2a2010;"></div>
+            <div class="d-m" style="background:#2a2010;"></div>
+            <div class="d-s" style="background:#c00;"></div>
+            <div class="d-center" style="background:var(--gold);"></div>
+            <div class="d-logo" style="color:var(--gold-dark);">PATEK PHILIPPE</div>
+            <div class="d-model" style="color:#8a7a5a;">CALATRAVA</div>
+          </div>
+        </div>
+      </div>
+      <div class="watch-item-info">
+        <div class="wi-brand">PATEK PHILIPPE</div>
+        <div class="wi-name">Calatrava</div>
+        <div class="wi-ref">Ref. 5227G-001 — White Gold</div>
+        <div class="wi-bottom">
+          <div class="wi-price">$28,600</div>
+          <button class="wi-btn">Enquire</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- PATEK COMPLICATIONS -->
+    <div class="watch-item reveal-up" data-brand="patek">
+      <div class="watch-item-image">
+        <div class="dial-art dial-patek-complications" style="width:150px;height:150px;">
+          <div class="d-face">
+            <div class="d-h" style="background:var(--gold-light);"></div>
+            <div class="d-m" style="background:var(--gold-light);"></div>
+            <div class="d-s" style="background:#e55;"></div>
+            <div class="d-center" style="background:var(--gold);box-shadow:0 0 8px var(--gold);"></div>
+            <div class="d-logo" style="color:var(--gold-light);">PATEK PHILIPPE</div>
+          </div>
+        </div>
+      </div>
+      <div class="watch-item-info">
+        <div class="wi-brand">PATEK PHILIPPE</div>
+        <div class="wi-name">Grand Complications</div>
+        <div class="wi-ref">Ref. 5270G — Perpetual Calendar</div>
+        <div class="wi-bottom">
+          <div class="wi-price">$148,000</div>
+          <button class="wi-btn">Enquire</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- AP ROYAL OAK -->
+    <div class="watch-item reveal-up delay-1" data-brand="ap">
+      <div class="watch-item-image">
+        <div class="dial-art dial-ap-royaloak" style="width:150px;height:150px;">
+          <div class="d-face">
+            <div class="d-h" style="background:var(--cream);"></div>
+            <div class="d-m" style="background:var(--cream);"></div>
+            <div class="d-s" style="background:#e55;"></div>
+            <div class="d-center" style="background:var(--gold);"></div>
+            <div class="d-logo" style="color:var(--gold-light);">AUDEMARS PIGUET</div>
+            <div class="d-model">ROYAL OAK</div>
+          </div>
+        </div>
+      </div>
+      <div class="watch-item-info">
+        <div class="wi-brand">AUDEMARS PIGUET</div>
+        <div class="wi-name">Royal Oak</div>
+        <div class="wi-ref">Ref. 15500ST — Jumbo Extra-Thin</div>
+        <div class="wi-bottom">
+          <div class="wi-price">$22,900</div>
+          <button class="wi-btn">Enquire</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- AP OFFSHORE -->
+    <div class="watch-item reveal-up delay-2" data-brand="ap">
+      <div class="watch-item-image">
+        <div class="dial-art dial-ap-offshore" style="width:150px;height:150px;">
+          <div class="d-face">
+            <div class="d-h" style="background:var(--cream);"></div>
+            <div class="d-m" style="background:var(--cream);"></div>
+            <div class="d-s" style="background:#e55;"></div>
+            <div class="d-center" style="background:#a0a0c0;"></div>
+            <div class="d-logo" style="color:var(--gold-light);">AUDEMARS PIGUET</div>
+            <div class="d-model">OFFSHORE</div>
+          </div>
+        </div>
+      </div>
+      <div class="watch-item-info">
+        <div class="wi-brand">AUDEMARS PIGUET</div>
+        <div class="wi-name">Royal Oak Offshore Chronograph</div>
+        <div class="wi-ref">Ref. 26420SO — Black Ceramic</div>
+        <div class="wi-bottom">
+          <div class="wi-price">$38,700</div>
+          <button class="wi-btn">Enquire</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- VACHERON OVERSEAS -->
+    <div class="watch-item reveal-up" data-brand="vacheron">
+      <div class="watch-item-image">
+        <div class="dial-art dial-vc-overseas" style="width:150px;height:150px;">
+          <div class="d-face">
+            <div class="d-h" style="background:#c0c0e0;"></div>
+            <div class="d-m" style="background:#c0c0e0;"></div>
+            <div class="d-s" style="background:#e55;"></div>
+            <div class="d-center" style="background:#8080c0;"></div>
+            <div class="d-logo" style="color:#b0b0e0;">VACHERON CONSTANTIN</div>
+          </div>
+        </div>
+      </div>
+      <div class="watch-item-info">
+        <div class="wi-brand">VACHERON CONSTANTIN</div>
+        <div class="wi-name">Overseas</div>
+        <div class="wi-ref">Ref. 4500V/110A — Steel Blue</div>
+        <div class="wi-bottom">
+          <div class="wi-price">$28,400</div>
+          <button class="wi-btn">Enquire</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- LANGE SAXONIA -->
+    <div class="watch-item reveal-up delay-1" data-brand="lange">
+      <div class="watch-item-image">
+        <div class="dial-art dial-lange-saxonia" style="width:150px;height:150px;">
+          <div class="d-face">
+            <div class="d-h" style="background:#1a1810;"></div>
+            <div class="d-m" style="background:#1a1810;"></div>
+            <div class="d-s" style="background:#c00;"></div>
+            <div class="d-center" style="background:#806848;"></div>
+            <div class="d-logo" style="color:#806848;">A. LANGE &amp; SÖHNE</div>
+            <div class="d-model" style="color:#a09080;">SAXONIA</div>
+          </div>
+        </div>
+      </div>
+      <div class="watch-item-info">
+        <div class="wi-brand">A. LANGE &amp; SÖHNE</div>
+        <div class="wi-name">Saxonia Thin</div>
+        <div class="wi-ref">Ref. 201.026 — White Gold</div>
+        <div class="wi-bottom">
+          <div class="wi-price">$19,800</div>
+          <button class="wi-btn">Enquire</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- JAEGER REVERSO -->
+    <div class="watch-item reveal-up delay-2" data-brand="jaeger">
+      <div class="watch-item-image">
+        <div class="dial-art dial-jlc-reverso" style="width:150px;height:150px;">
+          <div class="d-face">
+            <div class="d-h" style="background:#1a1a10;"></div>
+            <div class="d-m" style="background:#1a1a10;"></div>
+            <div class="d-s" style="background:#c00;"></div>
+            <div class="d-center" style="background:var(--gold-dark);"></div>
+            <div class="d-logo" style="color:#605040;">JAEGER-LECOULTRE</div>
+            <div class="d-model" style="color:#806848;">REVERSO</div>
+          </div>
+        </div>
+      </div>
+      <div class="watch-item-info">
+        <div class="wi-brand">JAEGER-LECOULTRE</div>
+        <div class="wi-name">Reverso Classic</div>
+        <div class="wi-ref">Ref. Q2458420 — Small Seconds</div>
+        <div class="wi-bottom">
+          <div class="wi-price">$8,750</div>
+          <button class="wi-btn">Enquire</button>
+        </div>
+      </div>
+    </div>
+
+  </div><!-- /watches-grid -->
+</section>
+
+<!-- NEWSLETTER -->
+<section class="newsletter-section">
+  <div class="newsletter-inner">
+    <div class="newsletter-content reveal-up">
+      <div class="section-eyebrow">Private Correspondence</div>
+      <h2>Join Our Circle</h2>
+      <p>Receive curated intelligence on rare acquisitions, auction previews, and horological events.</p>
+    </div>
+    <form class="newsletter-form reveal-up delay-2">
+      <input type="email" placeholder="Your email address"/>
+      <button type="submit" class="btn-primary">Subscribe</button>
+    </form>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="footer-top">
+    <div class="footer-brand">
+      <div class="footer-logo">HOROLOGIUM</div>
+      <p class="footer-tagline">The Art of Time Since 1905</p>
+      <div class="footer-socials">
+        <a href="#" class="social-link">IG</a>
+        <a href="#" class="social-link">FB</a>
+        <a href="#" class="social-link">TW</a>
+        <a href="#" class="social-link">YT</a>
+      </div>
+    </div>
+    <div class="footer-links">
+      <div class="footer-col"><h4>Explore</h4><ul>
+        <li><a href="collection.html">Collection</a></li>
+        <li><a href="brands.html">Maisons</a></li>
+        <li><a href="about.html">Heritage</a></li>
+        <li><a href="contact.html">Atelier</a></li>
+      </ul></div>
+      <div class="footer-col"><h4>Maisons</h4><ul>
+        <li><a href="brands.html#rolex">Rolex</a></li>
+        <li><a href="brands.html#patek">Patek Philippe</a></li>
+        <li><a href="brands.html#ap">Audemars Piguet</a></li>
+        <li><a href="brands.html#vacheron">Vacheron Constantin</a></li>
+      </ul></div>
+      <div class="footer-col"><h4>Services</h4><ul>
+        <li><a href="#">Authentication</a></li>
+        <li><a href="#">Servicing</a></li>
+        <li><a href="#">Consignment</a></li>
+        <li><a href="#">Private Sales</a></li>
+      </ul></div>
+      <div class="footer-col"><h4>Atelier</h4><ul>
+        <li><a href="contact.html">Geneva Showroom</a></li>
+        <li><a href="contact.html">London Gallery</a></li>
+        <li><a href="contact.html">New York Studio</a></li>
+        <li><a href="contact.html">Dubai Boutique</a></li>
+      </ul></div>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>© 2025 HOROLOGIUM. All rights reserved.</p>
+    <div class="footer-bottom-links">
+      <a href="#">Privacy Policy</a>
+      <a href="#">Terms of Service</a>
+    </div>
+  </div>
+</footer>
+
+<script src="main.js"></script>
+</body>
+</html>

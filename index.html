@@ -1,0 +1,484 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+  <title>HOROLOGIUM — The World's Finest Timepieces</title>
+  <link rel="stylesheet" href="styles.css"/>
+</head>
+<body>
+
+<!-- PRELOADER -->
+<div id="preloader">
+  <div class="preloader-inner">
+    <div class="preloader-logo">HOROLOGIUM</div>
+    <div class="preloader-bar"><span></span></div>
+    <div class="preloader-text">Curating Timeless Excellence</div>
+  </div>
+</div>
+
+<!-- CUSTOM CURSOR -->
+<div class="cursor-dot"></div>
+<div class="cursor-circle"></div>
+
+<!-- MOBILE MENU -->
+<div class="mobile-menu" id="mobileMenu">
+  <a href="index.html">Home</a>
+  <a href="collection.html">Collection</a>
+  <a href="brands.html">Maisons</a>
+  <a href="about.html">Heritage</a>
+  <a href="contact.html">Atelier</a>
+</div>
+
+<!-- NAVBAR -->
+<nav id="navbar">
+  <div class="nav-logo"><a href="index.html">HOROLOGIUM</a></div>
+  <div class="nav-toggle" id="navToggle"><span></span><span></span><span></span></div>
+  <ul class="nav-links">
+    <li><a href="index.html" class="active">Home</a></li>
+    <li><a href="collection.html">Collection</a></li>
+    <li><a href="brands.html">Maisons</a></li>
+    <li><a href="about.html">Heritage</a></li>
+    <li><a href="contact.html">Atelier</a></li>
+  </ul>
+  <div class="nav-cta"><a href="collection.html">Explore Now</a></div>
+</nav>
+
+<!-- ═══════════════════════════════════════════════════════
+     HERO
+═══════════════════════════════════════════════════════ -->
+<section class="hero" id="hero">
+  <div class="hero-bg">
+    <div class="hero-overlay"></div>
+    <div class="hero-particles" id="heroParticles"></div>
+
+    <!-- Animated Watch Visual -->
+    <div class="hero-watch-visual">
+      <div class="watch-face-hero">
+        <div class="watch-ring ring-1"></div>
+        <div class="watch-ring ring-2"></div>
+        <div class="watch-ring ring-3"></div>
+        <div class="watch-dial">
+          <div class="watch-hour-hand"></div>
+          <div class="watch-minute-hand"></div>
+          <div class="watch-second-hand"></div>
+          <div class="watch-center-dot"></div>
+          <div class="watch-brand-text">HOROLOGIUM</div>
+          <div class="watch-12">XII</div>
+          <div class="watch-3">III</div>
+          <div class="watch-6">VI</div>
+          <div class="watch-9">IX</div>
+        </div>
+        <div class="watch-crown"></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="hero-content">
+    <div class="hero-eyebrow reveal-up">Since 1905 — The Art of Time</div>
+    <h1 class="hero-title">
+      <span class="reveal-up delay-1">Where Every</span><br>
+      <em class="reveal-up delay-2">Second</em><br>
+      <span class="reveal-up delay-3">Is Eternal</span>
+    </h1>
+    <p class="hero-desc reveal-up delay-4">The world's most extraordinary timepieces, curated for those who understand that true luxury is measured in moments, not minutes.</p>
+    <div class="hero-actions reveal-up delay-5">
+      <a href="collection.html" class="btn-primary">Discover Collection</a>
+      <a href="brands.html" class="btn-ghost">Our Maisons</a>
+    </div>
+  </div>
+
+  <div class="hero-scroll-indicator">
+    <span>Scroll</span>
+    <div class="scroll-line"></div>
+  </div>
+
+  <div class="hero-stat-bar">
+    <div class="stat-item">
+      <span class="stat-num" data-target="6">0</span>
+      <span class="stat-label">Iconic Maisons</span>
+    </div>
+    <div class="stat-divider"></div>
+    <div class="stat-item">
+      <span class="stat-num" data-target="200">0</span>
+      <span class="stat-label">Masterpieces</span>
+    </div>
+    <div class="stat-divider"></div>
+    <div class="stat-item">
+      <span class="stat-num" data-target="120">0</span>
+      <span class="stat-label">Years Heritage</span>
+    </div>
+  </div>
+</section>
+
+<!-- MARQUEE -->
+<div class="marquee-section">
+  <div class="marquee-track">
+    <span>ROLEX</span><span class="dot">◆</span>
+    <span>PATEK PHILIPPE</span><span class="dot">◆</span>
+    <span>AUDEMARS PIGUET</span><span class="dot">◆</span>
+    <span>VACHERON CONSTANTIN</span><span class="dot">◆</span>
+    <span>A. LANGE &amp; SÖHNE</span><span class="dot">◆</span>
+    <span>JAEGER-LECOULTRE</span><span class="dot">◆</span>
+    <span>ROLEX</span><span class="dot">◆</span>
+    <span>PATEK PHILIPPE</span><span class="dot">◆</span>
+    <span>AUDEMARS PIGUET</span><span class="dot">◆</span>
+    <span>VACHERON CONSTANTIN</span><span class="dot">◆</span>
+    <span>A. LANGE &amp; SÖHNE</span><span class="dot">◆</span>
+    <span>JAEGER-LECOULTRE</span><span class="dot">◆</span>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════════════════
+     FEATURED WATCHES
+═══════════════════════════════════════════════════════ -->
+<section class="featured-section" id="featured">
+  <div class="section-header">
+    <div class="section-eyebrow reveal-up">Masterpieces of Horology</div>
+    <h2 class="section-title reveal-up">Icons of Time</h2>
+    <p class="section-sub reveal-up">Each piece a testament to centuries of watchmaking excellence</p>
+  </div>
+
+  <div class="featured-grid">
+
+    <!-- Card 1 — Large -->
+    <div class="watch-card card-large reveal-left">
+      <div class="card-image" style="height:420px;">
+        <div style="display:flex;align-items:center;justify-content:center;height:100%;background:radial-gradient(circle at 50% 40%,#1a1400,#050400);">
+          <div class="dial-art dial-rolex-daytona" style="width:170px;height:170px;">
+            <div class="d-ring" style="inset:0;border-color:rgba(201,168,76,0.3);"></div>
+            <div class="d-face">
+              <div class="d-h" style="background:var(--cream);"></div>
+              <div class="d-m" style="background:var(--cream);"></div>
+              <div class="d-s" style="background:#e55;"></div>
+              <div class="d-center" style="background:var(--gold);box-shadow:0 0 8px var(--gold);"></div>
+              <div class="d-logo" style="color:var(--gold-light);">ROLEX</div>
+              <div class="d-model" style="color:var(--grey);margin-top:0.5rem;">DAYTONA</div>
+            </div>
+          </div>
+        </div>
+        <div class="card-overlay"><div class="card-quick-view">Quick View</div></div>
+      </div>
+      <div class="card-info">
+        <div class="card-brand">ROLEX</div>
+        <h3 class="card-name">Cosmograph Daytona</h3>
+        <p class="card-ref">Ref. 126500LN — Oystersteel</p>
+        <div class="card-footer">
+          <div class="card-price">From $14,550</div>
+          <a href="collection.html" class="card-link">View →</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Card 2 -->
+    <div class="watch-card card-medium reveal-up delay-1">
+      <div class="card-image">
+        <div style="display:flex;align-items:center;justify-content:center;height:100%;background:radial-gradient(circle at 50%40%,#0a1020,#030610);">
+          <div class="dial-art dial-patek-nautilus" style="width:140px;height:140px;">
+            <div class="d-face">
+              <div class="d-h"></div><div class="d-m"></div><div class="d-s" style="background:#e55;"></div>
+              <div class="d-center"></div>
+              <div class="d-logo">PATEK PHILIPPE</div>
+            </div>
+          </div>
+        </div>
+        <div class="card-overlay"><div class="card-quick-view">Quick View</div></div>
+      </div>
+      <div class="card-info">
+        <div class="card-brand">PATEK PHILIPPE</div>
+        <h3 class="card-name">Nautilus</h3>
+        <p class="card-ref">Ref. 5711/1A-010</p>
+        <div class="card-footer">
+          <div class="card-price">From $34,893</div>
+          <a href="collection.html" class="card-link">View →</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Card 3 -->
+    <div class="watch-card card-medium reveal-up delay-2">
+      <div class="card-image">
+        <div style="display:flex;align-items:center;justify-content:center;height:100%;background:radial-gradient(circle at 50%40%,#0a1408,#020802);">
+          <div class="dial-art dial-ap-royaloak" style="width:130px;height:130px;">
+            <div class="d-face">
+              <div class="d-h"></div><div class="d-m"></div><div class="d-s" style="background:#e55;"></div>
+              <div class="d-center" style="background:var(--gold);"></div>
+              <div class="d-logo">AUDEMARS PIGUET</div>
+            </div>
+          </div>
+        </div>
+        <div class="card-overlay"><div class="card-quick-view">Quick View</div></div>
+      </div>
+      <div class="card-info">
+        <div class="card-brand">AUDEMARS PIGUET</div>
+        <h3 class="card-name">Royal Oak</h3>
+        <p class="card-ref">Ref. 15500ST.OO.1220ST.01</p>
+        <div class="card-footer">
+          <div class="card-price">From $22,900</div>
+          <a href="collection.html" class="card-link">View →</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Card 4 -->
+    <div class="watch-card card-small reveal-right delay-1">
+      <div class="card-image" style="height:180px;">
+        <div style="display:flex;align-items:center;justify-content:center;height:100%;background:radial-gradient(circle at 50%40%,#0a0a20,#030310);">
+          <div class="dial-art dial-vc-overseas" style="width:110px;height:110px;">
+            <div class="d-face">
+              <div class="d-h"></div><div class="d-m"></div><div class="d-s" style="background:#e55;"></div>
+              <div class="d-center"></div>
+              <div class="d-logo">VACHERON</div>
+            </div>
+          </div>
+        </div>
+        <div class="card-overlay"><div class="card-quick-view">Quick View</div></div>
+      </div>
+      <div class="card-info">
+        <div class="card-brand">VACHERON CONSTANTIN</div>
+        <h3 class="card-name">Overseas</h3>
+        <p class="card-ref">Ref. 4500V/110A-B483</p>
+        <div class="card-footer">
+          <div class="card-price">From $28,400</div>
+          <a href="collection.html" class="card-link">View →</a>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="featured-cta reveal-up" style="text-align:center;margin-top:3rem;">
+    <a href="collection.html" class="btn-primary">View Full Collection</a>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════════
+     BRAND SHOWCASE
+═══════════════════════════════════════════════════════ -->
+<section class="brands-showcase" id="brands">
+  <div class="brands-bg-text">MAISONS</div>
+  <div class="section-header">
+    <div class="section-eyebrow reveal-up">The Finest Ateliers</div>
+    <h2 class="section-title reveal-up">Our Maisons</h2>
+  </div>
+  <div class="brands-grid">
+
+    <a href="brands.html#rolex" class="brand-tile reveal-up">
+      <div class="brand-tile-logo">ROLEX</div>
+      <div class="brand-tile-year">Est. 1905 — Geneva, Switzerland</div>
+      <div class="brand-tile-desc">"The crown jewel of horology. Precision, prestige, and perpetual motion."</div>
+      <div class="brand-tile-arrow">→</div>
+      <div class="brand-tile-bg"></div>
+    </a>
+
+    <a href="brands.html#patek" class="brand-tile reveal-up delay-1">
+      <div class="brand-tile-logo">PATEK PHILIPPE</div>
+      <div class="brand-tile-year">Est. 1839 — Geneva, Switzerland</div>
+      <div class="brand-tile-desc">"You never actually own a Patek Philippe. You merely look after it for the next generation."</div>
+      <div class="brand-tile-arrow">→</div>
+      <div class="brand-tile-bg"></div>
+    </a>
+
+    <a href="brands.html#ap" class="brand-tile reveal-up delay-2">
+      <div class="brand-tile-logo">AUDEMARS PIGUET</div>
+      <div class="brand-tile-year">Est. 1875 — Le Brassus, Switzerland</div>
+      <div class="brand-tile-desc">"To break the rules, you must first master them. The Royal Oak changed horology forever."</div>
+      <div class="brand-tile-arrow">→</div>
+      <div class="brand-tile-bg"></div>
+    </a>
+
+    <a href="brands.html#vacheron" class="brand-tile reveal-up delay-3">
+      <div class="brand-tile-logo">VACHERON CONSTANTIN</div>
+      <div class="brand-tile-year">Est. 1755 — Geneva, Switzerland</div>
+      <div class="brand-tile-desc">"The world's oldest continuously operating watch manufacturer. Excellence unbroken."</div>
+      <div class="brand-tile-arrow">→</div>
+      <div class="brand-tile-bg"></div>
+    </a>
+
+    <a href="brands.html#lange" class="brand-tile reveal-up delay-4">
+      <div class="brand-tile-logo">A. LANGE &amp; SÖHNE</div>
+      <div class="brand-tile-year">Est. 1845 — Glashütte, Germany</div>
+      <div class="brand-tile-desc">"German precision elevated to art. Every component hand-crafted to perfection."</div>
+      <div class="brand-tile-arrow">→</div>
+      <div class="brand-tile-bg"></div>
+    </a>
+
+    <a href="brands.html#jaeger" class="brand-tile reveal-up delay-5">
+      <div class="brand-tile-logo">JAEGER-LECOULTRE</div>
+      <div class="brand-tile-year">Est. 1833 — Le Sentier, Switzerland</div>
+      <div class="brand-tile-desc">"The watchmaker's watchmaker. Over 1,400 calibres invented — including movements for Patek &amp; AP."</div>
+      <div class="brand-tile-arrow">→</div>
+      <div class="brand-tile-bg"></div>
+    </a>
+
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════════
+     PHILOSOPHY
+═══════════════════════════════════════════════════════ -->
+<section class="philosophy-section">
+  <div class="philosophy-inner">
+    <div class="philosophy-text reveal-left">
+      <span class="section-eyebrow">Our Philosophy</span>
+      <h2>Time Is The Only<br><em>True Luxury</em></h2>
+      <p>At HOROLOGIUM, we believe that the finest timepieces are not merely instruments of measurement — they are wearable art, philosophical statements, and generational legacies compressed into steel, gold, and sapphire crystal.</p>
+      <p>Each watch in our collection has been personally authenticated by our master horologists, ensuring that only the most exceptional pieces bear our name.</p>
+      <a href="about.html" class="btn-outline">Our Heritage →</a>
+    </div>
+    <div class="philosophy-visual reveal-right">
+      <div class="philosophy-watch-cluster">
+        <div class="cluster-watch cw1">
+          <div class="cw-face">
+            <div class="cw-hour"></div>
+            <div class="cw-minute"></div>
+            <div class="cw-brand">ROLEX</div>
+          </div>
+        </div>
+        <div class="cluster-watch cw2">
+          <div class="cw-face">
+            <div class="cw-hour"></div>
+            <div class="cw-minute"></div>
+            <div class="cw-brand">PATEK</div>
+          </div>
+        </div>
+        <div class="cluster-watch cw3">
+          <div class="cw-face">
+            <div class="cw-hour"></div>
+            <div class="cw-minute"></div>
+            <div class="cw-brand">AP</div>
+          </div>
+        </div>
+        <div class="philosophy-line l1"></div>
+        <div class="philosophy-line l2"></div>
+        <div class="philosophy-dot d1"></div>
+        <div class="philosophy-dot d2"></div>
+        <div class="philosophy-dot d3"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════════
+     TESTIMONIALS
+═══════════════════════════════════════════════════════ -->
+<section class="testimonials-section">
+  <div class="section-header">
+    <div class="section-eyebrow reveal-up">Discerning Collectors</div>
+    <h2 class="section-title reveal-up">Words of Distinction</h2>
+  </div>
+  <div class="testimonials-slider">
+    <div class="testimonial-track">
+      <div class="testimonial-item active">
+        <div class="testimonial-quote">"</div>
+        <p>HOROLOGIUM's curation is unparalleled. My Patek Philippe Grand Complications was authenticated flawlessly, and the service was extraordinary in every regard.</p>
+        <div class="testimonial-author">— Alessandro Rossi, Milan</div>
+        <div class="testimonial-stars">★★★★★</div>
+      </div>
+      <div class="testimonial-item">
+        <div class="testimonial-quote">"</div>
+        <p>Finding a Royal Oak Offshore Chronograph in this immaculate condition seemed impossible. HOROLOGIUM made it a reality within days. Truly world-class.</p>
+        <div class="testimonial-author">— James Harrington, London</div>
+        <div class="testimonial-stars">★★★★★</div>
+      </div>
+      <div class="testimonial-item">
+        <div class="testimonial-quote">"</div>
+        <p>The expertise displayed by HOROLOGIUM's team reflects the very watchmakers they represent. Exceptional knowledge, exceptional taste. I won't go anywhere else.</p>
+        <div class="testimonial-author">— Hiroshi Tanaka, Tokyo</div>
+        <div class="testimonial-stars">★★★★★</div>
+      </div>
+    </div>
+    <div class="testimonial-nav">
+      <button class="t-prev" id="tPrev">‹</button>
+      <div class="t-dots">
+        <span class="t-dot active"></span>
+        <span class="t-dot"></span>
+        <span class="t-dot"></span>
+      </div>
+      <button class="t-next" id="tNext">›</button>
+    </div>
+  </div>
+</section>
+
+<!-- NEWSLETTER -->
+<section class="newsletter-section">
+  <div class="newsletter-inner">
+    <div class="newsletter-content reveal-up">
+      <div class="section-eyebrow">Private Correspondence</div>
+      <h2>Join Our Circle</h2>
+      <p>Receive curated intelligence on rare acquisitions, auction previews, and horological events reserved exclusively for our collectors.</p>
+    </div>
+    <form class="newsletter-form reveal-up delay-2">
+      <input type="email" placeholder="Your email address"/>
+      <button type="submit" class="btn-primary">Subscribe</button>
+    </form>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="footer-top">
+    <div class="footer-brand">
+      <div class="footer-logo">HOROLOGIUM</div>
+      <p class="footer-tagline">The Art of Time Since 1905</p>
+      <div class="footer-socials">
+        <a href="#" class="social-link">IG</a>
+        <a href="#" class="social-link">FB</a>
+        <a href="#" class="social-link">TW</a>
+        <a href="#" class="social-link">YT</a>
+      </div>
+    </div>
+    <div class="footer-links">
+      <div class="footer-col">
+        <h4>Explore</h4>
+        <ul>
+          <li><a href="collection.html">Collection</a></li>
+          <li><a href="brands.html">Maisons</a></li>
+          <li><a href="about.html">Heritage</a></li>
+          <li><a href="contact.html">Atelier</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Maisons</h4>
+        <ul>
+          <li><a href="brands.html#rolex">Rolex</a></li>
+          <li><a href="brands.html#patek">Patek Philippe</a></li>
+          <li><a href="brands.html#ap">Audemars Piguet</a></li>
+          <li><a href="brands.html#vacheron">Vacheron Constantin</a></li>
+          <li><a href="brands.html#lange">A. Lange &amp; Söhne</a></li>
+          <li><a href="brands.html#jaeger">Jaeger-LeCoultre</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Services</h4>
+        <ul>
+          <li><a href="#">Authentication</a></li>
+          <li><a href="#">Servicing</a></li>
+          <li><a href="#">Consignment</a></li>
+          <li><a href="#">Private Sales</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Atelier</h4>
+        <ul>
+          <li><a href="contact.html">Geneva Showroom</a></li>
+          <li><a href="contact.html">London Gallery</a></li>
+          <li><a href="contact.html">New York Studio</a></li>
+          <li><a href="contact.html">Dubai Boutique</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>© 2025 HOROLOGIUM. All rights reserved. — Crafted with precision.</p>
+    <div class="footer-bottom-links">
+      <a href="#">Privacy Policy</a>
+      <a href="#">Terms of Service</a>
+      <a href="#">Cookie Policy</a>
+    </div>
+  </div>
+</footer>
+
+<script src="main.js"></script>
+</body>
+</html>
