@@ -1,0 +1,846 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+  <title>Heritage — HOROLOGIUM</title>
+  <link rel="stylesheet" href="styles.css"/>
+  <style>
+    /* ── ABOUT PAGE EXTRA STYLES ── */
+    .about-hero-watch {
+      position: absolute; right: 5%; top: 50%;
+      transform: translateY(-50%);
+      opacity: 0.18;
+      pointer-events: none;
+    }
+    .story-section {
+      padding: 8rem 5%;
+      background: var(--dark);
+    }
+    .story-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 6rem;
+      align-items: center;
+      margin-bottom: 6rem;
+    }
+    .story-grid.reverse { direction: rtl; }
+    .story-grid.reverse > * { direction: ltr; }
+    .story-text {}
+    .story-text .section-eyebrow { text-align: left; display: block; margin-bottom: 1rem; }
+    .story-text h2 {
+      font-family: var(--font-display);
+      font-size: clamp(1.8rem, 3.5vw, 3rem);
+      font-weight: 400;
+      color: var(--cream);
+      line-height: 1.15;
+      margin-bottom: 1.5rem;
+    }
+    .story-text h2 em { color: var(--gold); font-style: italic; font-family: var(--font-body); }
+    .story-text p {
+      font-family: var(--font-body);
+      font-size: 1.08rem;
+      line-height: 1.9;
+      color: rgba(245,240,232,0.65);
+      margin-bottom: 1.1rem;
+    }
+    .story-visual {
+      background: var(--dark2);
+      border: 1px solid var(--border2);
+      padding: 3.5rem;
+      position: relative;
+      overflow: hidden;
+    }
+    .story-visual::before {
+      content: '';
+      position: absolute; top: 0; left: 0; right: 0; height: 1px;
+      background: linear-gradient(90deg, transparent, var(--gold), transparent);
+    }
+    .story-visual-watch {
+      display: flex; align-items: center; justify-content: center;
+      padding: 2rem 0;
+    }
+    .gold-line {
+      width: 60px; height: 1px;
+      background: linear-gradient(90deg, transparent, var(--gold), transparent);
+      margin: 2rem auto;
+    }
+    .story-quote {
+      font-family: var(--font-body);
+      font-size: 1.3rem;
+      font-style: italic;
+      line-height: 1.7;
+      color: var(--cream2);
+      text-align: center;
+      padding: 0 1rem;
+    }
+    .story-quote-author {
+      font-family: var(--font-ui);
+      font-size: 0.6rem;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      color: var(--gold);
+      text-align: center;
+      margin-top: 1rem;
+    }
+
+    /* Timeline Section */
+    .timeline-section {
+      padding: 8rem 5%;
+      background: var(--black);
+      position: relative;
+      overflow: hidden;
+    }
+    .timeline-section::before {
+      content: 'HISTORY';
+      position: absolute; top: 50%; left: 50%;
+      transform: translate(-50%,-50%);
+      font-family: var(--font-display);
+      font-size: clamp(6rem, 16vw, 16rem);
+      color: rgba(255,255,255,0.015);
+      letter-spacing: 0.1em;
+      pointer-events: none;
+      white-space: nowrap;
+    }
+    .timeline-full {
+      position: relative;
+      max-width: 900px;
+      margin: 0 auto;
+      padding-top: 2rem;
+    }
+    .timeline-full::before {
+      content: '';
+      position: absolute; left: 50%; top: 0; bottom: 0;
+      width: 1px;
+      background: linear-gradient(to bottom, transparent, var(--border), var(--gold-dark), var(--border), transparent);
+      transform: translateX(-50%);
+    }
+    .tl-item {
+      display: grid;
+      grid-template-columns: 1fr 60px 1fr;
+      gap: 0;
+      margin-bottom: 4rem;
+      position: relative;
+    }
+    .tl-item:nth-child(odd) .tl-content  { grid-column: 1; text-align: right; padding-right: 2.5rem; }
+    .tl-item:nth-child(odd) .tl-empty    { grid-column: 3; }
+    .tl-item:nth-child(even) .tl-content { grid-column: 3; text-align: left; padding-left: 2.5rem; }
+    .tl-item:nth-child(even) .tl-empty   { grid-column: 1; }
+    .tl-node {
+      grid-column: 2;
+      display: flex; flex-direction: column; align-items: center; justify-content: center;
+      position: relative; z-index: 1;
+    }
+    .tl-dot {
+      width: 14px; height: 14px;
+      border-radius: 50%;
+      background: var(--dark);
+      border: 2px solid var(--gold);
+      box-shadow: 0 0 12px rgba(201,168,76,0.4);
+      transition: box-shadow 0.3s;
+    }
+    .tl-item:hover .tl-dot {
+      box-shadow: 0 0 24px rgba(201,168,76,0.8);
+    }
+    .tl-year {
+      font-family: var(--font-display);
+      font-size: 0.75rem;
+      color: var(--gold);
+      letter-spacing: 0.1em;
+      margin-top: 0.4rem;
+      white-space: nowrap;
+    }
+    .tl-content {}
+    .tl-title {
+      font-family: var(--font-display);
+      font-size: 1rem;
+      color: var(--cream);
+      margin-bottom: 0.4rem;
+    }
+    .tl-desc {
+      font-family: var(--font-body);
+      font-size: 0.95rem;
+      line-height: 1.7;
+      color: var(--grey);
+    }
+    .tl-brand-tag {
+      display: inline-block;
+      font-family: var(--font-ui);
+      font-size: 0.55rem;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: var(--gold-dark);
+      border: 1px solid rgba(201,168,76,0.2);
+      padding: 0.2rem 0.6rem;
+      margin-bottom: 0.5rem;
+    }
+
+    /* Values Section */
+    .values-section {
+      padding: 8rem 5%;
+      background: var(--dark2);
+      border-top: 1px solid var(--border2);
+    }
+    .values-grid-full {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
+      margin-top: 4rem;
+    }
+    .value-card-full {
+      background: var(--dark);
+      border: 1px solid var(--border2);
+      padding: 2.5rem;
+      position: relative;
+      overflow: hidden;
+      transition: border-color 0.4s, transform 0.4s var(--transition);
+    }
+    .value-card-full:hover {
+      border-color: rgba(201,168,76,0.3);
+      transform: translateY(-5px);
+    }
+    .value-card-full::after {
+      content: '';
+      position: absolute; bottom: 0; left: 0; right: 0; height: 1px;
+      background: linear-gradient(90deg, transparent, var(--gold), transparent);
+      transform: scaleX(0);
+      transition: transform 0.4s var(--transition);
+    }
+    .value-card-full:hover::after { transform: scaleX(1); }
+    .value-number {
+      font-family: var(--font-display);
+      font-size: 3rem;
+      color: rgba(201,168,76,0.1);
+      line-height: 1;
+      margin-bottom: 1rem;
+    }
+    .value-icon-symbol {
+      font-size: 1.8rem;
+      margin-bottom: 1rem;
+      display: block;
+    }
+    .value-card-full h3 {
+      font-family: var(--font-display);
+      font-size: 1.15rem;
+      color: var(--cream);
+      margin-bottom: 0.8rem;
+    }
+    .value-card-full p {
+      font-family: var(--font-body);
+      font-size: 1rem;
+      line-height: 1.75;
+      color: var(--grey);
+    }
+
+    /* Team / Authenticity Section */
+    .authenticity-section {
+      padding: 8rem 5%;
+      background: var(--dark);
+    }
+    .auth-inner {
+      display: grid;
+      grid-template-columns: 1.2fr 1fr;
+      gap: 6rem;
+      align-items: center;
+    }
+    .auth-stats {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.5rem;
+      margin-top: 3rem;
+    }
+    .auth-stat {
+      background: var(--dark2);
+      border: 1px solid var(--border2);
+      padding: 1.8rem;
+      text-align: center;
+      transition: border-color 0.3s;
+    }
+    .auth-stat:hover { border-color: rgba(201,168,76,0.3); }
+    .auth-stat-num {
+      font-family: var(--font-display);
+      font-size: 2.5rem;
+      color: var(--gold);
+      line-height: 1;
+    }
+    .auth-stat-label {
+      font-family: var(--font-ui);
+      font-size: 0.6rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--grey);
+      margin-top: 0.5rem;
+    }
+    .auth-visual {
+      display: flex; flex-direction: column; gap: 1.5rem;
+    }
+    .auth-step {
+      display: flex;
+      gap: 1.5rem;
+      align-items: flex-start;
+      padding: 1.5rem;
+      background: var(--dark2);
+      border: 1px solid var(--border2);
+      transition: border-color 0.3s;
+    }
+    .auth-step:hover { border-color: rgba(201,168,76,0.3); }
+    .auth-step-num {
+      font-family: var(--font-display);
+      font-size: 1.8rem;
+      color: rgba(201,168,76,0.3);
+      line-height: 1;
+      min-width: 40px;
+    }
+    .auth-step-text h4 {
+      font-family: var(--font-display);
+      font-size: 0.95rem;
+      color: var(--cream);
+      margin-bottom: 0.3rem;
+    }
+    .auth-step-text p {
+      font-family: var(--font-body);
+      font-size: 0.9rem;
+      color: var(--grey);
+      line-height: 1.6;
+    }
+
+    /* CTA Band */
+    .cta-band {
+      padding: 6rem 5%;
+      background: var(--black);
+      text-align: center;
+      border-top: 1px solid var(--border2);
+      position: relative;
+      overflow: hidden;
+    }
+    .cta-band::before {
+      content: '';
+      position: absolute; inset: 0;
+      background: radial-gradient(ellipse 60% 100% at 50% 100%, rgba(201,168,76,0.06), transparent 70%);
+    }
+    .cta-band h2 {
+      font-family: var(--font-display);
+      font-size: clamp(2rem, 4vw, 3.5rem);
+      font-weight: 400;
+      color: var(--cream);
+      margin-bottom: 1.2rem;
+      position: relative;
+    }
+    .cta-band h2 em { color: var(--gold); font-style: italic; font-family: var(--font-body); }
+    .cta-band p {
+      font-family: var(--font-body);
+      font-size: 1.1rem;
+      color: var(--grey);
+      max-width: 560px;
+      margin: 0 auto 2.5rem;
+      line-height: 1.8;
+      position: relative;
+    }
+    .cta-band-actions {
+      display: flex; gap: 1.2rem; justify-content: center; flex-wrap: wrap;
+      position: relative;
+    }
+
+    @media (max-width: 1024px) {
+      .story-grid, .auth-inner { grid-template-columns: 1fr; gap: 3rem; }
+      .story-grid.reverse { direction: ltr; }
+      .timeline-full::before { left: 24px; }
+      .tl-item { grid-template-columns: 48px 1fr; }
+      .tl-item:nth-child(odd) .tl-content,
+      .tl-item:nth-child(even) .tl-content { grid-column: 2; text-align: left; padding-left: 1.5rem; padding-right: 0; }
+      .tl-item:nth-child(odd) .tl-empty,
+      .tl-item:nth-child(even) .tl-empty   { display: none; }
+      .tl-node { grid-column: 1; }
+      .values-grid-full { grid-template-columns: 1fr 1fr; }
+      .auth-stats { grid-template-columns: 1fr 1fr; }
+    }
+    @media (max-width: 600px) {
+      .values-grid-full { grid-template-columns: 1fr; }
+      .auth-stats { grid-template-columns: 1fr 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- PRELOADER -->
+<div id="preloader">
+  <div class="preloader-inner">
+    <div class="preloader-logo">HOROLOGIUM</div>
+    <div class="preloader-bar"><span></span></div>
+    <div class="preloader-text">A Century of Excellence</div>
+  </div>
+</div>
+
+<div class="cursor-dot"></div>
+<div class="cursor-circle"></div>
+
+<!-- MOBILE MENU -->
+<div class="mobile-menu" id="mobileMenu">
+  <a href="index.html">Home</a>
+  <a href="collection.html">Collection</a>
+  <a href="brands.html">Maisons</a>
+  <a href="about.html">Heritage</a>
+  <a href="contact.html">Atelier</a>
+</div>
+
+<!-- NAVBAR -->
+<nav id="navbar">
+  <div class="nav-logo"><a href="index.html">HOROLOGIUM</a></div>
+  <div class="nav-toggle" id="navToggle"><span></span><span></span><span></span></div>
+  <ul class="nav-links">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="collection.html">Collection</a></li>
+    <li><a href="brands.html">Maisons</a></li>
+    <li><a href="about.html" class="active">Heritage</a></li>
+    <li><a href="contact.html">Atelier</a></li>
+  </ul>
+  <div class="nav-cta"><a href="contact.html">Enquire</a></div>
+</nav>
+
+<!-- ═══════════════════════════════════════════════════════
+     PAGE HERO
+═══════════════════════════════════════════════════════ -->
+<div class="page-hero" style="min-height:60vh;">
+  <div class="hero-particles" id="heroParticles"></div>
+  <div style="position:absolute;inset:0;background:radial-gradient(ellipse 100% 80% at 60% 110%,#1a1200 0%,#050505 70%);"></div>
+
+  <!-- Decorative watch cluster -->
+  <div class="about-hero-watch">
+    <div class="watch-face-hero" style="width:380px;height:380px;">
+      <div class="watch-ring ring-1"></div>
+      <div class="watch-ring ring-2"></div>
+      <div class="watch-ring ring-3"></div>
+      <div class="watch-dial">
+        <div class="watch-hour-hand"></div>
+        <div class="watch-minute-hand"></div>
+        <div class="watch-second-hand"></div>
+        <div class="watch-center-dot"></div>
+        <div class="watch-brand-text">HOROLOGIUM</div>
+        <div class="watch-12">XII</div>
+        <div class="watch-3">III</div>
+        <div class="watch-6">VI</div>
+        <div class="watch-9">IX</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="page-hero-content" style="max-width:650px;">
+    <div class="page-hero-eyebrow reveal-up">Est. 1905 — Geneva, Switzerland</div>
+    <h1 class="page-hero-title reveal-up delay-1">
+      Our<br><em style="font-family:var(--font-body);color:var(--gold);font-style:italic;">Heritage</em>
+    </h1>
+    <p class="reveal-up delay-2" style="font-family:var(--font-body);font-size:1.15rem;color:rgba(245,240,232,0.6);line-height:1.8;margin-top:1.5rem;max-width:480px;">
+      Over a century of dedication to the art of horology — curating the world's most extraordinary timepieces for those who understand that true luxury transcends time itself.
+    </p>
+  </div>
+</div>
+
+<!-- MARQUEE -->
+<div class="marquee-section">
+  <div class="marquee-track">
+    <span>ROLEX</span><span class="dot">◆</span>
+    <span>PATEK PHILIPPE</span><span class="dot">◆</span>
+    <span>AUDEMARS PIGUET</span><span class="dot">◆</span>
+    <span>VACHERON CONSTANTIN</span><span class="dot">◆</span>
+    <span>A. LANGE &amp; SÖHNE</span><span class="dot">◆</span>
+    <span>JAEGER-LECOULTRE</span><span class="dot">◆</span>
+    <span>ROLEX</span><span class="dot">◆</span>
+    <span>PATEK PHILIPPE</span><span class="dot">◆</span>
+    <span>AUDEMARS PIGUET</span><span class="dot">◆</span>
+    <span>VACHERON CONSTANTIN</span><span class="dot">◆</span>
+    <span>A. LANGE &amp; SÖHNE</span><span class="dot">◆</span>
+    <span>JAEGER-LECOULTRE</span><span class="dot">◆</span>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════════════════
+     OUR STORY
+═══════════════════════════════════════════════════════ -->
+<section class="story-section">
+
+  <div class="section-header" style="margin-bottom:6rem;">
+    <div class="section-eyebrow reveal-up">Who We Are</div>
+    <h2 class="section-title reveal-up">Born From A Passion<br>For <em style="font-style:italic;color:var(--gold);font-family:var(--font-body);">Perfection</em></h2>
+    <p class="section-sub reveal-up">HOROLOGIUM was founded on a single, unwavering belief — that the finest timepieces deserve the finest guardians.</p>
+  </div>
+
+  <!-- Story Block 1 -->
+  <div class="story-grid">
+    <div class="story-text reveal-left">
+      <span class="section-eyebrow">The Beginning</span>
+      <h2>A Century of <em>Curatorial</em> Excellence</h2>
+      <p>In 1905, master watchmaker Édouard Bertrand walked out of his Geneva atelier with a singular vision: to create an institution that would preserve and share the greatest horological masterworks ever conceived. He had spent two decades working alongside the greats — repairing movements for Patek Philippe, sourcing complications for Vacheron Constantin.</p>
+      <p>What began as a small, private gallery on the Rue du Rhône became the world's most respected destination for discerning collectors. Kings, industrialists, and cultural luminaries passed through its gilded doors seeking not merely a watch — but a legacy to wear on their wrist.</p>
+      <p>Today, HOROLOGIUM stands as the definitive authority in luxury timepiece curation — with showrooms on four continents and a reputation built on 120 years of absolute integrity.</p>
+    </div>
+    <div class="story-visual reveal-right">
+      <div class="story-visual-watch">
+        <div class="dial-art dial-rolex-daytona" style="width:160px;height:160px;">
+          <div class="d-face">
+            <div class="d-h" style="background:var(--cream);"></div>
+            <div class="d-m" style="background:var(--cream);"></div>
+            <div class="d-s" style="background:#e55;"></div>
+            <div class="d-center" style="background:var(--gold);box-shadow:0 0 10px var(--gold);"></div>
+            <div class="d-logo" style="color:var(--gold-light);font-size:0.28rem;">HOROLOGIUM</div>
+            <div class="d-model" style="color:var(--grey);margin-top:0.5rem;">GENÈVE 1905</div>
+          </div>
+        </div>
+      </div>
+      <div class="gold-line"></div>
+      <div class="story-quote">"The watch does not tell you the time. It tells you about yourself."</div>
+      <div class="story-quote-author">— Édouard Bertrand, Founder, 1905</div>
+    </div>
+  </div>
+
+  <!-- Story Block 2 -->
+  <div class="story-grid reverse" style="margin-top:5rem;">
+    <div class="story-visual reveal-left">
+      <div style="padding:2rem;">
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:1rem;">
+          <div style="text-align:center;padding:1.5rem;background:var(--dark3);border:1px solid var(--border2);">
+            <div style="font-family:var(--font-display);font-size:2.2rem;color:var(--gold);">120+</div>
+            <div style="font-family:var(--font-ui);font-size:0.58rem;letter-spacing:0.2em;color:var(--grey);text-transform:uppercase;margin-top:0.3rem;">Years of Excellence</div>
+          </div>
+          <div style="text-align:center;padding:1.5rem;background:var(--dark3);border:1px solid var(--border2);">
+            <div style="font-family:var(--font-display);font-size:2.2rem;color:var(--gold);">4</div>
+            <div style="font-family:var(--font-ui);font-size:0.58rem;letter-spacing:0.2em;color:var(--grey);text-transform:uppercase;margin-top:0.3rem;">Global Showrooms</div>
+          </div>
+          <div style="text-align:center;padding:1.5rem;background:var(--dark3);border:1px solid var(--border2);">
+            <div style="font-family:var(--font-display);font-size:2.2rem;color:var(--gold);">200+</div>
+            <div style="font-family:var(--font-ui);font-size:0.58rem;letter-spacing:0.2em;color:var(--grey);text-transform:uppercase;margin-top:0.3rem;">Masterpieces Curated</div>
+          </div>
+          <div style="text-align:center;padding:1.5rem;background:var(--dark3);border:1px solid var(--border2);">
+            <div style="font-family:var(--font-display);font-size:2.2rem;color:var(--gold);">6</div>
+            <div style="font-family:var(--font-ui);font-size:0.58rem;letter-spacing:0.2em;color:var(--grey);text-transform:uppercase;margin-top:0.3rem;">Iconic Maisons</div>
+          </div>
+        </div>
+        <div class="gold-line" style="margin-top:1.5rem;"></div>
+        <div class="story-quote" style="font-size:1.05rem;">"Authenticity is not a feature. It is our foundation."</div>
+        <div class="story-quote-author">— HOROLOGIUM Charter, 1905</div>
+      </div>
+    </div>
+    <div class="story-text reveal-right">
+      <span class="section-eyebrow">The Philosophy</span>
+      <h2>More Than A Watch.<br>A <em>Declaration</em></h2>
+      <p>We have always believed that a fine timepiece is not simply a machine for measuring seconds. It is a statement of values — of precision, of patience, of the understanding that the greatest things in life are crafted slowly, carefully, and with absolute intention.</p>
+      <p>Every piece we offer has been authenticated by our panel of master horologists — each with decades of experience working directly with the world's great manufactures. We accept no compromises in provenance, condition, or service history.</p>
+      <p>Our collectors trust us not just to find extraordinary watches, but to guard the stories behind them — to ensure that each timepiece passes from one worthy custodian to the next.</p>
+    </div>
+  </div>
+
+</section>
+
+<!-- ═══════════════════════════════════════════════════════
+     TIMELINE
+═══════════════════════════════════════════════════════ -->
+<section class="timeline-section">
+  <div class="section-header" style="margin-bottom:5rem;">
+    <div class="section-eyebrow reveal-up">A Journey Through Time</div>
+    <h2 class="section-title reveal-up">Milestones of <em style="font-style:italic;color:var(--gold);font-family:var(--font-body);">History</em></h2>
+  </div>
+
+  <div class="timeline-full">
+
+    <div class="tl-item reveal-up">
+      <div class="tl-content">
+        <div class="tl-brand-tag">HOROLOGIUM</div>
+        <div class="tl-title">The Founding</div>
+        <div class="tl-desc">Édouard Bertrand opens HOROLOGIUM's first atelier on Geneva's Rue du Rhône, with a collection of twelve handpicked pieces from the greatest Swiss manufactures.</div>
+      </div>
+      <div class="tl-node"><div class="tl-dot"></div><div class="tl-year">1905</div></div>
+      <div class="tl-empty"></div>
+    </div>
+
+    <div class="tl-item reveal-up delay-1">
+      <div class="tl-empty"></div>
+      <div class="tl-node"><div class="tl-dot"></div><div class="tl-year">1926</div></div>
+      <div class="tl-content">
+        <div class="tl-brand-tag">ROLEX</div>
+        <div class="tl-title">The Oyster Partnership</div>
+        <div class="tl-desc">HOROLOGIUM becomes an exclusive partner of Rolex following the launch of the Oyster — the world's first waterproof wristwatch — securing first access to this revolutionary timepiece.</div>
+      </div>
+    </div>
+
+    <div class="tl-item reveal-up delay-2">
+      <div class="tl-content">
+        <div class="tl-brand-tag">PATEK PHILIPPE</div>
+        <div class="tl-title">The Calatrava Debut</div>
+        <div class="tl-desc">We are chosen as one of only three global partners to debut the iconic Patek Philippe Calatrava — cementing our position as a premier institution of haute horlogerie.</div>
+      </div>
+      <div class="tl-node"><div class="tl-dot"></div><div class="tl-year">1932</div></div>
+      <div class="tl-empty"></div>
+    </div>
+
+    <div class="tl-item reveal-up">
+      <div class="tl-empty"></div>
+      <div class="tl-node"><div class="tl-dot"></div><div class="tl-year">1953</div></div>
+      <div class="tl-content">
+        <div class="tl-brand-tag">ROLEX</div>
+        <div class="tl-title">The Summit Collection</div>
+        <div class="tl-desc">HOROLOGIUM commemorates the first ascent of Everest — a feat accomplished with a Rolex Oyster on the wrist — by curating the exclusive Summit Collection, now legendary among collectors.</div>
+      </div>
+    </div>
+
+    <div class="tl-item reveal-up delay-1">
+      <div class="tl-content">
+        <div class="tl-brand-tag">AUDEMARS PIGUET</div>
+        <div class="tl-title">The Royal Oak Revolution</div>
+        <div class="tl-desc">Édouard Bertrand II personally travels to Le Brassus to secure allocation of the radical new Royal Oak — the first luxury sports watch in steel — calling it "the most important design of the century."</div>
+      </div>
+      <div class="tl-node"><div class="tl-dot"></div><div class="tl-year">1972</div></div>
+      <div class="tl-empty"></div>
+    </div>
+
+    <div class="tl-item reveal-up delay-2">
+      <div class="tl-empty"></div>
+      <div class="tl-node"><div class="tl-dot"></div><div class="tl-year">1990</div></div>
+      <div class="tl-content">
+        <div class="tl-brand-tag">A. LANGE & SÖHNE</div>
+        <div class="tl-title">A German Renaissance</div>
+        <div class="tl-desc">HOROLOGIUM is among the first to stock the reborn A. Lange &amp; Söhne following reunification — stocking the legendary Lange 1 from its very first production run of 500 pieces.</div>
+      </div>
+    </div>
+
+    <div class="tl-item reveal-up">
+      <div class="tl-content">
+        <div class="tl-brand-tag">HOROLOGIUM</div>
+        <div class="tl-title">Global Expansion</div>
+        <div class="tl-desc">Showrooms open in London, New York, and Dubai, bringing HOROLOGIUM's curatorial philosophy to the world's great horological capitals. Each atelier designed by Pritzker laureates.</div>
+      </div>
+      <div class="tl-node"><div class="tl-dot"></div><div class="tl-year">2005</div></div>
+      <div class="tl-empty"></div>
+    </div>
+
+    <div class="tl-item reveal-up delay-1">
+      <div class="tl-empty"></div>
+      <div class="tl-node"><div class="tl-dot"></div><div class="tl-year">2025</div></div>
+      <div class="tl-content">
+        <div class="tl-brand-tag">HOROLOGIUM</div>
+        <div class="tl-title">A Centennial Celebration</div>
+        <div class="tl-desc">120 years of unbroken excellence. HOROLOGIUM celebrates its centennial with a private exhibition of 120 of the most significant watches ever created — one for each year of our guardianship.</div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════════
+     OUR VALUES
+═══════════════════════════════════════════════════════ -->
+<section class="values-section">
+  <div class="section-header">
+    <div class="section-eyebrow reveal-up">What We Stand For</div>
+    <h2 class="section-title reveal-up">Principles of the <em style="font-style:italic;color:var(--gold);font-family:var(--font-body);">Maison</em></h2>
+    <p class="section-sub reveal-up">Six values, distilled from 120 years of practice.</p>
+  </div>
+
+  <div class="values-grid-full">
+
+    <div class="value-card-full reveal-up">
+      <div class="value-number">01</div>
+      <span class="value-icon-symbol">⚜</span>
+      <h3>Absolute Authenticity</h3>
+      <p>Every piece undergoes a rigorous 47-point authentication process conducted by our panel of master horologists. We accept no grey market pieces and guarantee every provenance statement.</p>
+    </div>
+
+    <div class="value-card-full reveal-up delay-1">
+      <div class="value-number">02</div>
+      <span class="value-icon-symbol">◈</span>
+      <h3>Curatorial Precision</h3>
+      <p>We refuse 94% of watches offered to us. Our collection is not assembled from available inventory — it is curated with the same discernment a museum director applies to acquisitions.</p>
+    </div>
+
+    <div class="value-card-full reveal-up delay-2">
+      <div class="value-number">03</div>
+      <span class="value-icon-symbol">∞</span>
+      <h3>Generational Thinking</h3>
+      <p>Like the great houses we represent, we think in generations — not quarters. Our relationships with clients span decades. We aim to serve your grandchildren as faithfully as we serve you today.</p>
+    </div>
+
+    <div class="value-card-full reveal-up delay-3">
+      <div class="value-number">04</div>
+      <span class="value-icon-symbol">◇</span>
+      <h3>Transparent Counsel</h3>
+      <p>We do not pursue sales. We pursue perfect matches between extraordinary watches and worthy custodians. Our advisors will counsel you away from a piece as readily as toward one.</p>
+    </div>
+
+    <div class="value-card-full reveal-up delay-4">
+      <div class="value-number">05</div>
+      <span class="value-icon-symbol">✦</span>
+      <h3>Living Knowledge</h3>
+      <p>Our horologists maintain active relationships with every manufacture we represent. We attend SIHH and Baselworld as insiders — giving you access to intelligence no catalogue can provide.</p>
+    </div>
+
+    <div class="value-card-full reveal-up delay-5">
+      <div class="value-number">06</div>
+      <span class="value-icon-symbol">❖</span>
+      <h3>Service Beyond the Sale</h3>
+      <p>Our relationship begins, not ends, at the moment of acquisition. We provide lifetime provenance documentation, servicing introductions, and first access to future opportunities — exclusively for our collectors.</p>
+    </div>
+
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════════
+     AUTHENTICATION PROCESS
+═══════════════════════════════════════════════════════ -->
+<section class="authenticity-section">
+  <div class="auth-inner">
+
+    <div class="reveal-left">
+      <span class="section-eyebrow" style="text-align:left;display:block;margin-bottom:1rem;">Our Process</span>
+      <h2 style="font-family:var(--font-display);font-size:clamp(1.8rem,3.5vw,3rem);font-weight:400;color:var(--cream);line-height:1.15;margin-bottom:1.5rem;">
+        The <em style="color:var(--gold);font-style:italic;font-family:var(--font-body);">HOROLOGIUM</em><br>Authentication Standard
+      </h2>
+      <p style="font-family:var(--font-body);font-size:1.05rem;line-height:1.9;color:rgba(245,240,232,0.65);margin-bottom:1rem;">
+        Every watch that enters our collection passes through the most rigorous authentication process in the industry. We have spent 120 years perfecting this process — and we continue to refine it as watchmaking technology evolves.
+      </p>
+      <p style="font-family:var(--font-body);font-size:1.05rem;line-height:1.9;color:rgba(245,240,232,0.65);margin-bottom:2rem;">
+        Our team of twelve master horologists brings over 280 combined years of experience working directly with Rolex, Patek Philippe, Audemars Piguet, and the other great houses. No certificate alone suffices — every movement is personally examined.
+      </p>
+      <div class="auth-stats">
+        <div class="auth-stat">
+          <div class="auth-stat-num">47</div>
+          <div class="auth-stat-label">Authentication Points</div>
+        </div>
+        <div class="auth-stat">
+          <div class="auth-stat-num">12</div>
+          <div class="auth-stat-label">Master Horologists</div>
+        </div>
+        <div class="auth-stat">
+          <div class="auth-stat-num">94%</div>
+          <div class="auth-stat-label">Pieces Rejected</div>
+        </div>
+        <div class="auth-stat">
+          <div class="auth-stat-num">100%</div>
+          <div class="auth-stat-label">Guaranteed Authentic</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="auth-visual reveal-right">
+      <div class="auth-step">
+        <div class="auth-step-num">01</div>
+        <div class="auth-step-text">
+          <h4>Provenance Investigation</h4>
+          <p>Full documentation review — original sales receipt, service records, and chain of ownership verified against manufacturer archives where possible.</p>
+        </div>
+      </div>
+      <div class="auth-step">
+        <div class="auth-step-num">02</div>
+        <div class="auth-step-text">
+          <h4>External Examination</h4>
+          <p>Case, crystal, crown, bezel, bracelet, and dial examined under 10× magnification. Serial and reference numbers cross-referenced against production records.</p>
+        </div>
+      </div>
+      <div class="auth-step">
+        <div class="auth-step-num">03</div>
+        <div class="auth-step-text">
+          <h4>Movement Analysis</h4>
+          <p>Case opened and movement examined by a specialist in the relevant calibre. Finishing, signatures, and component originality assessed against known examples.</p>
+        </div>
+      </div>
+      <div class="auth-step">
+        <div class="auth-step-num">04</div>
+        <div class="auth-step-text">
+          <h4>Timing Certification</h4>
+          <p>Movement timed across six positions on a certified chronometer tester. Accuracy, amplitude, and beat error recorded and compared to factory specification.</p>
+        </div>
+      </div>
+      <div class="auth-step">
+        <div class="auth-step-num">05</div>
+        <div class="auth-step-text">
+          <h4>HOROLOGIUM Certificate Issued</h4>
+          <p>Successful pieces receive the HOROLOGIUM Certificate of Authenticity — numbered, signed, and permanently registered in our archive. Internationally recognised.</p>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════════
+     CTA BAND
+═══════════════════════════════════════════════════════ -->
+<section class="cta-band">
+  <div class="reveal-up">
+    <span class="section-eyebrow" style="display:block;margin-bottom:1rem;">Begin Your Journey</span>
+    <h2>Find Your <em>Perfect</em> Timepiece</h2>
+    <p>Whether you are a first-time collector or a seasoned connoisseur, our advisors are ready to guide you toward a watch that will endure for generations.</p>
+    <div class="cta-band-actions">
+      <a href="collection.html" class="btn-primary">Explore Collection</a>
+      <a href="contact.html" class="btn-ghost">Speak to an Advisor</a>
+    </div>
+  </div>
+</section>
+
+<!-- NEWSLETTER -->
+<section class="newsletter-section">
+  <div class="newsletter-inner">
+    <div class="newsletter-content reveal-up">
+      <div class="section-eyebrow">Private Correspondence</div>
+      <h2>Join Our Circle</h2>
+      <p>Receive curated intelligence on rare acquisitions, auction previews, and horological events reserved exclusively for our collectors.</p>
+    </div>
+    <form class="newsletter-form reveal-up delay-2">
+      <input type="email" placeholder="Your email address"/>
+      <button type="submit" class="btn-primary">Subscribe</button>
+    </form>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="footer-top">
+    <div class="footer-brand">
+      <div class="footer-logo">HOROLOGIUM</div>
+      <p class="footer-tagline">The Art of Time Since 1905</p>
+      <div class="footer-socials">
+        <a href="#" class="social-link">IG</a>
+        <a href="#" class="social-link">FB</a>
+        <a href="#" class="social-link">TW</a>
+        <a href="#" class="social-link">YT</a>
+      </div>
+    </div>
+    <div class="footer-links">
+      <div class="footer-col"><h4>Explore</h4><ul>
+        <li><a href="collection.html">Collection</a></li>
+        <li><a href="brands.html">Maisons</a></li>
+        <li><a href="about.html">Heritage</a></li>
+        <li><a href="contact.html">Atelier</a></li>
+      </ul></div>
+      <div class="footer-col"><h4>Maisons</h4><ul>
+        <li><a href="brands.html#rolex">Rolex</a></li>
+        <li><a href="brands.html#patek">Patek Philippe</a></li>
+        <li><a href="brands.html#ap">Audemars Piguet</a></li>
+        <li><a href="brands.html#vacheron">Vacheron Constantin</a></li>
+        <li><a href="brands.html#lange">A. Lange &amp; Söhne</a></li>
+        <li><a href="brands.html#jaeger">Jaeger-LeCoultre</a></li>
+      </ul></div>
+      <div class="footer-col"><h4>Services</h4><ul>
+        <li><a href="#">Authentication</a></li>
+        <li><a href="#">Servicing</a></li>
+        <li><a href="#">Consignment</a></li>
+        <li><a href="#">Private Sales</a></li>
+      </ul></div>
+      <div class="footer-col"><h4>Atelier</h4><ul>
+        <li><a href="contact.html">Geneva Showroom</a></li>
+        <li><a href="contact.html">London Gallery</a></li>
+        <li><a href="contact.html">New York Studio</a></li>
+        <li><a href="contact.html">Dubai Boutique</a></li>
+      </ul></div>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>© 2025 HOROLOGIUM. All rights reserved. — Crafted with precision.</p>
+    <div class="footer-bottom-links">
+      <a href="#">Privacy Policy</a>
+      <a href="#">Terms of Service</a>
+      <a href="#">Cookie Policy</a>
+    </div>
+  </div>
+</footer>
+
+<script src="main.js"></script>
+</body>
+</html>
